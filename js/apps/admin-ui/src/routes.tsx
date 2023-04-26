@@ -14,10 +14,12 @@ import dashboardRoutes from "./dashboard/routes";
 import eventRoutes from "./events/routes";
 import groupsRoutes from "./groups/routes";
 import identityProviders from "./identity-providers/routes";
+import orgRoutes from "./orgs/routes";
 import realmRoleRoutes from "./realm-roles/routes";
 import realmSettingRoutes from "./realm-settings/routes";
 import realmRoutes from "./realm/routes";
 import sessionRoutes from "./sessions/routes";
+import stylesRoutes from "./custom-styles/routes";
 import userFederationRoutes from "./user-federation/routes";
 import userRoutes from "./user/routes";
 
@@ -45,6 +47,7 @@ export const routes: AppRouteObject[] = [
   ...clientScopesRoutes,
   ...eventRoutes,
   ...identityProviders,
+  ...orgRoutes,
   ...realmRoleRoutes,
   ...realmRoutes,
   ...realmSettingRoutes,
@@ -52,6 +55,7 @@ export const routes: AppRouteObject[] = [
   ...userFederationRoutes,
   ...userRoutes,
   ...groupsRoutes,
+  ...stylesRoutes,
   ...dashboardRoutes,
   NotFoundRoute,
 ];
