@@ -16,7 +16,7 @@ import {
 import {
   arrayToKeyValue,
   keyValueToArray,
-} from "../components/key-value-form/key-value-convert-unique-keys";
+} from "../components/key-value-form-custom/key-value-convert-unique-keys";
 import { useAdminClient } from "../context/auth/AdminClient";
 import RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
 
