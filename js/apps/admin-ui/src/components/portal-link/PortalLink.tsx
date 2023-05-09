@@ -12,8 +12,8 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { useRealm } from "../../context/realm-context/RealmContext";
-import type { OrgParams } from "../../orgs/routes/Org";
-import useOrgFetcher from "../../orgs/useOrgFetcher";
+import type { OrgParams } from "../../phaseII/orgs/routes/Org";
+import useOrgFetcher from "../../phaseII/orgs/useOrgFetcher";
 import { ConfirmDialogModal } from "../confirm-dialog/ConfirmDialog";
 
 type PortalLinkProps = {

@@ -17,10 +17,11 @@ import { AddRealmRoute } from "./realm/routes/AddRealm";
 import { routes } from "./routes";
 
 import "./page-nav.css";
+import Extensions from "./phaseII/navigation/extensions";
 
 type LeftNavProps = { title: string; path: string };
 
-const LeftNav = ({ title, path }: LeftNavProps) => {
+export const LeftNav = ({ title, path }: LeftNavProps) => {
   const { t } = useTranslation("common");
   const { hasAccess } = useAccess();
   const { realm } = useRealm();
@@ -55,7 +56,7 @@ const LeftNav = ({ title, path }: LeftNavProps) => {
 
 export const PageNav = () => {
   const { t } = useTranslation("common");
-  const { hasSomeAccess, hasSomeAccessByString } = useAccess();
+  const { hasSomeAccess } = useAccess();
 
   const navigate = useNavigate();
 
@@ -83,11 +84,6 @@ export const PageNav = () => {
     "view-realm",
     "query-clients",
     "view-identity-providers"
-  );
-
-  const showOrgs = hasSomeAccessByString(
-    "view-organizations",
-    "manage-organizations"
   );
 
   const isOnAddRealm = !!useMatch(AddRealmRoute.path);
@@ -123,14 +119,8 @@ export const PageNav = () => {
               <LeftNav title="userFederation" path="/user-federation" />
             </NavGroup>
           )}
-          {!isOnAddRealm && (
-            <NavGroup aria-label={t("extensions")} title={t("extensions")}>
-              {showOrgs && (
-                <LeftNav title="Organizations" path="/organizations" />
-              )}
-              <LeftNav title="Styles" path="/styles" />
-            </NavGroup>
-          )}
+
+          <Extensions />
         </Nav>
       }
     />

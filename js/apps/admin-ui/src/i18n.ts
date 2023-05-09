@@ -58,6 +58,7 @@ const initOptions = async (
       "dynamic",
       "overrides",
       "styles",
+      "orgs",
     ],
     interpolation: {
       escapeValue: false,
