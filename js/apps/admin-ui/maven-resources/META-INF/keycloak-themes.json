@@ -2,9 +2,7 @@
   "themes": [
     {
       "name": "phasetwo.v2",
-      "types": [
-        "admin"
-      ]
+      "types": ["admin"]
     }
   ]
 }
