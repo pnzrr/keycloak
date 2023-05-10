@@ -26,6 +26,12 @@ type MembersOf = UserRepresentation & {
   membership: GroupRepresentation[];
 };
 
+const UserDetailLink = (user: MembersOf, realm: string) => (
+  <Link key={user.id} to={toUser({ realm, id: user.id!, tab: "settings" })}>
+    {user.username}
+  </Link>
+);
+
 export default function OrgMembers({ org }: OrgMembersTypeProps) {
   const { t } = useTranslation("orgs");
   const { realm } = useRealm();
@@ -48,15 +54,8 @@ export default function OrgMembers({ org }: OrgMembersTypeProps) {
     fetchData();
   }, []);
 
-  const loader = async (): Promise<MembersOf[]> => {
-    return await getOrgMembers(org.id);
-  };
-
-  const UserDetailLink = (user: MembersOf) => (
-    <Link key={user.id} to={toUser({ realm, id: user.id!, tab: "settings" })}>
-      {user.username}
-    </Link>
-  );
+  const loader = async (first: number, max: number): Promise<MembersOf[]> =>
+    await getOrgMembers(org.id, { first, max });
 
   const [addMembersVisibility, setAddMembersVisibility] = useState(false);
   const toggleAddMembersVisibility = () =>
@@ -82,7 +81,9 @@ export default function OrgMembers({ org }: OrgMembersTypeProps) {
       )}
       <KeycloakDataTable
         data-testid="members-org-table"
+        isPaginated
         key={key}
+        //@ts-ignore
         loader={loader}
         ariaLabelKey="orgs:members"
         toolbarItem={
@@ -120,7 +121,7 @@ export default function OrgMembers({ org }: OrgMembersTypeProps) {
           {
             name: "username",
             displayKey: "Name",
-            cellRenderer: UserDetailLink,
+            cellRenderer: (user: MembersOf) => UserDetailLink(user, realm),
           },
           {
             name: "email",

@@ -162,8 +162,16 @@ export default function useOrgFetcher(realm: string) {
     };
   }
 
-  async function getOrgMembers(orgId: string): Promise<MembersOf[]> {
-    const resp = await fetchGet(`${baseUrl}/orgs/${orgId}/members`);
+  type OrgMemberOptions = {
+    first: number;
+    max: number;
+  };
+  async function getOrgMembers(
+    orgId: string,
+    { first, max }: OrgMemberOptions = { first: 1, max: 100 }
+  ): Promise<MembersOf[]> {
+    const query = `first=${first}&max=${max}`;
+    const resp = await fetchGet(`${baseUrl}/orgs/${orgId}/members?${query}`);
     const result = await resp.json();
     return result;
   }
