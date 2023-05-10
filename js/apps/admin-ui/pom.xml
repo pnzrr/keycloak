@@ -9,7 +9,16 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
+    <groupId>io.phasetwo</groupId>
+    <artifactId>phasetwo-admin-ui</artifactId>
+    <version>21.1.1.0</version>
+
+    <properties>
+        <admin-ui.theme.name>phasetwo.v2</admin-ui.theme.name>
+    </properties>
+    <!--
     <artifactId>keycloak-admin-ui</artifactId>
+    -->
 
     <name>Keycloak Admin UI</name>
     <description>The user inferface to administrate the Keycloak server.</description>
@@ -21,7 +30,7 @@
             </resource>
             <resource>
                 <directory>dist</directory>
-                <targetPath>theme/keycloak.v2/admin/resources</targetPath>
+                <targetPath>theme/${admin-ui.theme.name}/admin/resources</targetPath>
                 <excludes>
                     <exclude>index.html</exclude>
                 </excludes>
@@ -60,7 +69,7 @@
                 </executions>
                 <configuration>
                     <file>dist/index.html</file>
-                    <outputFile>target/classes/theme/keycloak.v2/admin/index.ftl</outputFile>
+                    <outputFile>target/classes/theme/${admin-ui.theme.name}/admin/index.ftl</outputFile>
                     <regex>false</regex>
                     <replacements>
                         <replacement>
