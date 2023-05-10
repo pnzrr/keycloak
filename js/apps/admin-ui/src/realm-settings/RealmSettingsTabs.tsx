@@ -49,6 +49,7 @@ import { RealmSettingsTokensTab } from "./TokensTab";
 import { UserProfileTab } from "./user-profile/UserProfileTab";
 import { UserRegistration } from "./UserRegistration";
 import { useServerInfo } from "../context/server-info/ServerInfoProvider";
+import { RealmSettingsAttributeTab } from "../phaseII/realm-settings/RealmSettingsAttributesTab";
 
 type RealmSettingsHeaderProps = {
   onChange: (value: boolean) => void;
@@ -241,6 +242,7 @@ export const RealmSettingsTabs = ({
     useServerInfo().profileInfo?.disabledFeatures?.includes("CLIENT_POLICIES");
   const userProfileTab = useTab("user-profile");
   const userRegistrationTab = useTab("user-registration");
+  const attributesTab = useTab("attributes");
 
   const useClientPoliciesTab = (tab: ClientPoliciesTab) =>
     useRoutableTab(
@@ -352,6 +354,13 @@ export const RealmSettingsTabs = ({
             {...tokensTab}
           >
             <RealmSettingsTokensTab save={save} realm={realm} />
+          </Tab>
+          <Tab
+            title={<TabTitleText>{t("attributes")}</TabTitleText>}
+            data-testid="rs-realm-attributes-tab"
+            {...attributesTab}
+          >
+            <RealmSettingsAttributeTab realm={realm} />
           </Tab>
           {!clientPoliciesDisabled && (
             <Tab
