@@ -138,10 +138,6 @@ export const LoginStyles = () => {
   const save = async () => {
     // update realm with new attributes
     const updatedRealm = generateUpdatedRealm();
-    console.log(
-      "🚀 ~ file: login-styles.tsx:141 ~ save ~ updatedRealm:",
-      updatedRealm
-    );
     // save values
     try {
       await adminClient.realms.update({ realm }, updatedRealm);
