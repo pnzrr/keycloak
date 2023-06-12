@@ -102,7 +102,7 @@ export const LoginStyles = () => {
       updatedObj = {
         ...updatedObj,
         attributes: {
-          ...fullRealm!.attributes,
+          ...updatedObj!.attributes,
           [fullKeyPath]: value,
         },
       };
