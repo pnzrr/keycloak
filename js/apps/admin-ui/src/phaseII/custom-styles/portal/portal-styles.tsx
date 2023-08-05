@@ -20,7 +20,7 @@ import { get, mapKeys, pick } from "lodash-es";
 import { useAlerts } from "../../../components/alert/Alerts";
 import { ColorPicker } from "../components/ColorPicker";
 import { KeycloakTextArea } from "../../../components/keycloak-text-area/KeycloakTextArea";
-import { adminClient } from "apps/admin-ui/src/admin-client";
+import { adminClient } from "../../../admin-client";
 
 type PortalStylesType = {
   primaryColor: string;

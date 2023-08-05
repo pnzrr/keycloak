@@ -11,10 +11,10 @@ import {
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { useRealm } from "apps/admin-ui/src/context/realm-context/RealmContext";
+import { useRealm } from "../../../../../src/context/realm-context/RealmContext";
 import { OrgParams } from "../../routes/Org";
 import useOrgFetcher from "../../useOrgFetcher";
-import { ConfirmDialogModal } from "apps/admin-ui/src/components/confirm-dialog/ConfirmDialog";
+import { ConfirmDialogModal } from "../../../../../src/components/confirm-dialog/ConfirmDialog";
 
 type PortalLinkProps = {
   id: string;

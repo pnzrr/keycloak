@@ -11,7 +11,7 @@ import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
 import { KeyValueType } from "./key-value-convert";
-import { KeycloakTextInput } from "apps/admin-ui/src/components/keycloak-text-input/KeycloakTextInput";
+import { KeycloakTextInput } from "../../../../../src/components/keycloak-text-input/KeycloakTextInput";
 
 type KeyValueInputProps = {
   name: string;

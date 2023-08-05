@@ -20,7 +20,7 @@ import { useRealm } from "../../../context/realm-context/RealmContext";
 import RealmRepresentation from "@keycloak/keycloak-admin-client/lib/defs/realmRepresentation";
 import { get, isEqual } from "lodash-es";
 import { useAlerts } from "../../../components/alert/Alerts";
-import { adminClient } from "apps/admin-ui/src/admin-client";
+import { adminClient } from "../../../admin-client";
 
 type GeneralStylesType = {
   logoUrl: string;

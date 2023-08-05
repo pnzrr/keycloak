@@ -13,7 +13,7 @@ import {
 import { get, cloneDeep, differenceBy, omit, uniqBy } from "lodash-es";
 import { ListEmptyState } from "../../../components/list-empty-state/ListEmptyState";
 import { KeycloakSpinner } from "../../../components/keycloak-spinner/KeycloakSpinner";
-import { useFetch } from "apps/admin-ui/src/utils/useFetch";
+import { useFetch } from "../../../../src/utils/useFetch";
 import { ButtonVariant } from "@patternfly/react-core";
 import type {
   Action,

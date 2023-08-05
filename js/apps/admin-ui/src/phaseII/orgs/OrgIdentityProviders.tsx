@@ -42,8 +42,6 @@ interface IdentityProviderRepresentationP2
 export default function OrgIdentityProviders({
   org,
 }: OrgIdentityProvidersProps) {
-  console.log("[OrgIdentityProviders org]", org);
-
   const { realm } = useRealm();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { updateIdentityProvider } = useOrgFetcher(realm);
@@ -63,7 +61,6 @@ export default function OrgIdentityProviders({
     const identityProviders = (await adminClient.identityProviders.find({
       realm,
     })) as IdentityProviderRepresentationP2[];
-    console.log("[identityProviders]", identityProviders);
     setIdps(identityProviders);
 
     // at least one IdP?

@@ -5,6 +5,7 @@ P// has added a lot of additional functionality to the Admin UI. Those are cordo
 - `PageNav.tsx`
   - Extensions nav group imported from the `phaseII/navigation` folder
   - Export Left Nav for use in the `extensions` file.
+- Include the routes for the Phase II orgs and styles in `admin-ui/src/routes`
 - Translations
   - Files have to live in the `/js/apps/admin-ui/public/locales/en` folder
   - `orgs.json`

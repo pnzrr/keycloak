@@ -20,7 +20,7 @@ import { KeycloakTextArea } from "../../../components/keycloak-text-area/Keycloa
 import { useRealm } from "../../../context/realm-context/RealmContext";
 import { SaveReset } from "../components/SaveReset";
 import useStylesFetcher from "../useStylesFetcher";
-import { adminClient } from "apps/admin-ui/src/admin-client";
+import { adminClient } from "../../../admin-client";
 
 type EmailTemplateTabProps = {
   realm: RealmRepresentation;

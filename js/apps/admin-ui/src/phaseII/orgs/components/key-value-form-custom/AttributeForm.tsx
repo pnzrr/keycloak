@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import type { KeyValueType } from "./key-value-convert";
 import { KeyValueInput } from "./KeyValueInput";
-import { FormAccess } from "apps/admin-ui/src/components/form/FormAccess";
+import { FormAccess } from "../../../../../src/components/form/FormAccess";
 
 export type AttributeForm = Omit<RoleRepresentation, "attributes"> & {
   attributes?: KeyValueType[];

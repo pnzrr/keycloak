@@ -13,7 +13,7 @@ import { EmailTemplate } from "./email/email-template";
 import { PortalStyles } from "./portal/portal-styles";
 
 import { KeycloakSpinner } from "../../components/keycloak-spinner/KeycloakSpinner";
-import { useFetch } from "apps/admin-ui/src/utils/useFetch";
+import { useFetch } from "../../utils/useFetch";
 import { useState } from "react";
 import { useRealm } from "../../context/realm-context/RealmContext";
 import RealmRepresentation from "libs/keycloak-admin-client/lib/defs/realmRepresentation";
