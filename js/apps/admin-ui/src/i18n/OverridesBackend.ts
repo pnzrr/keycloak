@@ -16,11 +16,23 @@ export class OverridesBackend extends HttpBackend {
     languages?: string | string[],
     namespaces?: string | string[]
   ) {
+    // console.log(
+    //   "🚀 ~ file: OverridesBackend.ts:19 ~ OverridesBackend ~ url:",
+    //   url,
+    //   callback,
+    //   languages,
+    //   namespaces
+    // );
     try {
       const [data, overrides] = await Promise.all([
         this.#loadUrlPromisified(url, languages, namespaces),
         this.#loadOverrides(languages),
       ]);
+      // console.log(
+      //   "🚀 ~ file: OverridesBackend.ts:24 ~ OverridesBackend ~ data, overrides:",
+      //   data,
+      //   overrides
+      // );
 
       const namespace = this.#determineNamespace(namespaces);
 
@@ -68,6 +80,10 @@ export class OverridesBackend extends HttpBackend {
 
   #loadOverrides(languages?: string | string[]) {
     const locale = this.#determineLocale(languages);
+    // console.log(
+    //   "🚀 ~ file: OverridesBackend.ts:83 ~ OverridesBackend ~ #loadOverrides ~ locale:",
+    //   locale
+    // );
     const cachedOverrides = this.#overridesCache.get(locale);
 
     if (cachedOverrides) {
@@ -80,6 +96,10 @@ export class OverridesBackend extends HttpBackend {
         selectedLocale: locale,
       })
       .then((data) => this.#parseOverrides(data));
+    console.log(
+      "🚀 ~ file: OverridesBackend.ts:103 ~ OverridesBackend ~ #loadOverrides ~ overrides:",
+      overrides
+    );
 
     this.#overridesCache.set(locale, overrides);
 
@@ -94,6 +114,11 @@ export class OverridesBackend extends HttpBackend {
 
   #parseOverrides(data: Record<string, string>) {
     const parsed: ParsedOverrides = {};
+    console.log(
+      "🚀 ~ file: OverridesBackend.ts:112 ~ OverridesBackend ~ #parseOverrides ~ data:",
+      data,
+      parsed
+    );
 
     for (const [path, value] of Object.entries(data)) {
       const parts = path.split(NAMESPACE_SEPARATOR);
@@ -112,6 +137,10 @@ export class OverridesBackend extends HttpBackend {
 
       parsed[namespace][key] = value;
     }
+    console.log(
+      "🚀 ~ file: OverridesBackend.ts:142 ~ OverridesBackend ~ #parseOverrides ~ parsed:",
+      parsed
+    );
 
     return parsed;
   }

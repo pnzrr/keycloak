@@ -6,7 +6,7 @@ import { checker } from "vite-plugin-checker";
 export default defineConfig({
   base: "",
   server: {
-    port: 8081,
+    port: 8080,
   },
   build: {
     sourcemap: true,
