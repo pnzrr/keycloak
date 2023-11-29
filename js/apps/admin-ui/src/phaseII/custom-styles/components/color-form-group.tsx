@@ -1,19 +1,19 @@
 import type {
   PortalStylesTypeColors,
   PortalStylesType,
-} from "../portal-styles";
+} from "../portal/portal-styles";
 import { useTranslation } from "react-i18next";
 import { FormGroup, Flex, FlexItem } from "@patternfly/react-core";
 import { HelpItem } from "ui-shared";
 import { ValidatedOptions } from "@patternfly/react-core/dist/js/helpers/constants";
-import { KeycloakTextInput } from "../../../../components/keycloak-text-input/KeycloakTextInput";
+import { KeycloakTextInput } from "../../../components/keycloak-text-input/KeycloakTextInput";
 import type {
   FieldErrors,
   UseFormGetValues,
   UseFormRegister,
   UseFormSetValue,
 } from "react-hook-form";
-import { ColorPicker } from "../../components/ColorPicker";
+import { ColorPicker } from "./ColorPicker";
 
 const HexColorPattern = "^#([0-9a-f]{3}){1,2}$";
 
@@ -36,11 +36,14 @@ const ColorFormGroup: React.FC<ColorFormGroupProps> = ({
   return (
     <FormGroup
       labelIcon={
-        <HelpItem helpText={`styles:${colorKey}Help`} fieldLabelId={colorKey} />
+        <HelpItem
+          helpText={t(`styles:${colorKey}Help`)}
+          fieldLabelId={colorKey}
+        />
       }
       label={t(colorKey)}
       fieldId={`kc-styles-${colorKey}-url`}
-      helperTextInvalid={t(`styles:${colorKey}HelpInvalid`)}
+      helperTextInvalid={t(`styles:colorHelpInvalid`)}
       validated={
         errors[colorKey] ? ValidatedOptions.error : ValidatedOptions.default
       }
